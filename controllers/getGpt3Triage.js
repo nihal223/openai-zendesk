@@ -32,7 +32,7 @@ async function getGpt3Triage (chatText) {
     { "summary": "a summary of the ticket conversation", 
     "sentiment": "The sentiment the user is feeling narrowed to 1 or 2 words.",
     "priority": "low, normal, high, or urgent.",
-    "category": "feature_request, subscription_question, view_game, find_team, messaging, or other.", 
+    "category": "feature request, subscription question, view game, find team, messaging, other", 
     "tags": ["come up with between 1 and 3 tags for the problem in 2 underscore-separated words"] }
     ${chatText}`
 

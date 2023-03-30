@@ -19,7 +19,7 @@ async function triageTicket (ticketId, ticketProperties) {
       custom_fields: [
         {
           id: 11002089412493,
-          value: category
+          value: category.split(' ').join('_') // https://developer.zendesk.com/documentation/ticketing/managing-tickets/creating-and-updating-tickets/#setting-custom-field-values
         },
         {
           id: 14450517827469,
