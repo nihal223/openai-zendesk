@@ -4,7 +4,7 @@ const zendeskClient = require('./utils/zendeskClient')
 async function triageTicket (ticketId, ticketProperties) {
   const client = zendeskClient()
 
-  const { summary, priority, category, tags } = ticketProperties
+  const { summary, sentiment, priority, category, tags } = ticketProperties
   // const groupId = await matchGroupNameToId(assignee)
 
   const ticketData = {
@@ -20,6 +20,10 @@ async function triageTicket (ticketId, ticketProperties) {
         {
           id: 11002089412493,
           value: category
+        },
+        {
+          id: 14450517827469,
+          value: sentiment
         }
       ]
     }
