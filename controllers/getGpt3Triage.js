@@ -25,23 +25,23 @@ function parseGpt3Response (choices) {
 }
 
 async function getGpt3Triage (chatText) {
-  console.log(`customer request: ${chatText}`)
+  console.log(`\n\n customer request: ${chatText}`)
   const openai = openAiClient()
 
   const prompt = `The following is a support ticket from a customer, reply only with a JSON-formatted object like this:
     { "summary": "a summary of the ticket conversation", 
     "sentiment": "The sentiment the user is feeling narrowed to 1 or 2 words.",
     "priority": "low, normal, high, or urgent.",
-    "category": "feature request, subscription question, view game, find team, messaging, or other.", 
+    "category": "feature_request, subscription_question, view_game, find_team, messaging, or other.", 
     "tags": ["come up with between 1 and 3 tags for the problem in 2 underscore-separated words"] }
     ${chatText}`
 
   try {
     const completion = await openai.createCompletion(completionOptions(prompt))
 
-    console.log(`before parsing response: ${JSON.stringify(completion.data.choices)}`)
+    // console.log(`before parsing response: ${JSON.stringify(completion.data.choices)}`)
     const response = parseGpt3Response(completion.data.choices)
-    console.log(`chatGPT response: ${JSON.stringify(response)}`)
+    console.log(`chatGPT response: ${JSON.stringify(response)} \n\n`)
     return response
   } catch (error) {
     console.log(error.response)
