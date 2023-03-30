@@ -15,13 +15,18 @@ async function triageTicket (ticketId, ticketProperties) {
       },
       priority,
       // group_id: groupId,
-      category,
-      tags
+      tags,
+      custom_fields: [
+        {
+          id: 11002089412493,
+          value: category
+        }
+      ]
     }
   }
 
   try {
-    // await client.tickets.update(ticketId, ticketData)
+    await client.tickets.update(ticketId, ticketData)
   } catch (err) {
     console.log(ticketId, ticketProperties)
     throw new Error(err)
